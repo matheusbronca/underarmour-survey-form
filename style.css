@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+:root {
+  --accentColor: #FF8C74;
+  --secondaryColor: #8B8B8B;
+  --labelSize: .9vw;
+  --placeholderSize: .8vw;
+}
+  
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+::selection {
+  background: #FFE8E4;
+}
+
+body {
+  zoom: .75;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: url("https://drive.google.com/uc?id=1FzzZb3oMaoLZOVAMjdfbLhFpaacBa1YR");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+::placeholder {
+  font-size: var(--placeholderSize);
+}
+
+#dropdown {
+  font-size: var(--placeholderSize);
+}
+
+header {
+  position: absolute;
+  top: 0;
+  background-color: var(--accentColor);
+  width: 100%;
+  height: 10vw;
+}
+
+#title {
+  text-align: center;
+  font-size: 6vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  position: fixed;
+  top: 28vw;
+  left: -1rem;
+  transform: rotate(-90deg);
+}
+
+#description {
+  display: block;
+  margin: 1vw;
+  text-align: center;
+  font-size: 1vw;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+#survey-form{
+  font-family: "Poppins", sans-serif;
+  font-size: var(--labelSize);
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #fff;
+  padding: 5vw;
+  margin: 3vw;
+  color: var(--secondaryColor);
+  box-shadow: 0 1vw 2vw rgba(0,0,0,.1);
+  position: relative;
+  width: 55%;
+}
+
+#form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-item:not(:last-of-type) {
+  margin-bottom: 1.3vw;
+}
+
+label, p {
+  margin-bottom: 0.25vw;
+}
+
+.txt-input, #number {
+  font-family: "Poppins", sans-serif;
+  font-weight: lighter;
+  font-size: 1vw;
+  border: 1px solid var(--secondaryColor);
+  border-radius: 0;
+  display: inline-block;
+  padding: .8vw;
+}
+
+.txt-input:focus, #age:focus{
+  outline: 1px solid var(--accentColor);
+  outline-offset: 0;
+  border: none;
+}
+
+#dropdown:focus{
+  outline: 0px;
+  border:  1px solid var(--accentColor);
+  
+  }
+
+/* START Custom Radio Inputs */
+
+@supports(-webkit-appearance: none) or (-moz-appearance:none) {
+  
+  .radio-container, .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 25px 0;
+  }
+
+  
+  input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  --size: 2vw;  
+  --active: var(--accentColor);
+  --border: #8B8B8B;
+  --focus: 2px #E1E1E1;
+  --background: white;
+  --bg-hover : #E1E1E1;
+  border: 1.2px solid var(--bc,var(--border));
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--bg,var(--background));
+  border-radius: 50%;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  transition:  size .3s ease-in-out, 
+    color .3s ease-in-out,
+    box-shadow .3s ease-in-out; 
+  }
+  
+  .radio-container > *, .checkbox-container > *{
+    cursor: pointer;
+  }
+  
+  .radio-container > label, .checkbox-container > label {
+    font-family: "Poppins", sans-serif;
+    text-transform: none;
+    color: var(--txtColor, var(--secondaryColor));   
+  }
+  
+  .radio-container > label:not(:last-of-type), .checkbox-container > label:not(:last-of-type){
+    margin-right: 5vw;
+  }
+  
+  input[type='radio']:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    background-color: var(--active);
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  
+  
+  input[type='radio']:checked:after, input[type='radio']:checked + label {
+    width: calc(var(--size) * 0.5);
+    height: calc(var(--size) * 0.5);
+    background: var(--active);
+    transition: all .3s;
+    transition-timing-function: cubic-bezier(0, 0, 0, 2.2);
+    --txtColor: var(--accentColor);
+    
+  }
+  
+  input[type='radio']:checked {
+  --bg: white;
+  --txtc: orange;
+}
+
+input[type='radio']:not(:checked) {
+  --bc: var(--border);
+}
+
+input[type='radio']:not(:checked):not(:disabled):hover,
+  input[type='checkbox']:not(:checked):not(:disabled):hover{
+  --bg: var(--bg-hover);
+}
+  
+  
+input[type='radio']:focus, input[type='checkbox']:focus {
+    box-shadow: 0 0 0 var(--focus);
+  }
+  /* END Custom Radio Inputs */
+  
+  /* START Custom Checkboxes Inputs */
+
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  --size: 2vw;  
+  --active: var(--accentColor);
+  --border: #8B8B8B;
+  --focus: 2px #E1E1E1;
+  --background: white;
+  --bg-hover : #E1E1E1;
+  border: 1.2px solid var(--bc,var(--border));
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--bg,var(--background));
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  transition: 
+    size .3s ease-in-out, 
+    color .3s ease-in-out,
+    box-shadow .3s ease-in-out;
+    
+  }
+  
+   input[type='checkbox']:after, input[type='checkbox']:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    background-color: var(--active);
+    justify-content: center;
+    align-items: center;
+  }
+  
+    input[type='checkbox']:checked:after, input[type='checkbox']:checked + label {
+    width: calc(var(--size) * 0.5);
+    height: calc(var(--size) * 0.5);
+    background: var(--active);
+    transition: all .3s;
+    transition-timing-function: cubic-bezier(0, 0, 0, 2.2);
+    --txtColor: var(--accentColor);
+  }
+  
+}
+
+
+#comments {
+  min-width: 100%;;
+  resize: vertical;
+}
+
+#submit {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  color: white;
+  font-size: var(--labelSize);
+  text-transform: uppercase;
+  background: var(--accentColor);
+  border: 0;
+  padding: 1.5vw;
+  cursor: pointer;
+  transition: transform .3s ease-in-out,
+    background .1s ease-in-out;
+}
+
+#submit:hover {
+ transform: scale(0.975);
+}
+
+#submit:focus{
+ background: rgba(0,0,0, .3)
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  box-shadow: 0 0 0px 1000px #FEE3DE inset;
+}
