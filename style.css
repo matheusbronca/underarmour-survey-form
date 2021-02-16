@@ -3,8 +3,8 @@
 :root {
   --accentColor: #FF8C74;
   --secondaryColor: #8B8B8B;
-  --labelSize: .9vw;
-  --placeholderSize: .8vw;
+  --labelSize: .875rem;
+  --placeholderSize: .8rem;
 }
   
 *,
@@ -23,7 +23,7 @@
 }
 
 body {
-  zoom: .75;
+  zoom: 1;
 }
 
 body::before {
@@ -80,9 +80,9 @@ header {
 
 #description {
   display: block;
-  margin: 1vw;
+  margin: .75rem;
   text-align: center;
-  font-size: 1vw;
+  font-size: .75rem;
   font-family: "Poppins", sans-serif;
   color: white;
 }
@@ -93,8 +93,8 @@ header {
   font-weight: 500;
   text-transform: uppercase;
   background-color: #fff;
-  padding: 5vw;
-  margin: 3vw;
+  padding: 2rem;
+  margin: 3rem;
   color: var(--secondaryColor);
   box-shadow: 0 1vw 2vw rgba(0,0,0,.1);
   position: relative;
@@ -117,11 +117,11 @@ label, p {
 .txt-input, #number {
   font-family: "Poppins", sans-serif;
   font-weight: lighter;
-  font-size: 1vw;
+  font-size: .875rem;
   border: 1px solid var(--secondaryColor);
   border-radius: 0;
   display: inline-block;
-  padding: .8vw;
+  padding: .5rem;
 }
 
 .txt-input:focus, #age:focus{
@@ -151,7 +151,7 @@ label, p {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  --size: 2vw;  
+  --size: 1rem;  
   --active: var(--accentColor);
   --border: #8B8B8B;
   --focus: 2px #E1E1E1;
@@ -234,15 +234,15 @@ input[type='radio']:focus, input[type='checkbox']:focus {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  --size: 2vw;  
+  --size: 1rem;  
   --active: var(--accentColor);
   --border: #8B8B8B;
   --focus: 2px #E1E1E1;
   --background: white;
   --bg-hover : #E1E1E1;
   border: 1.2px solid var(--bc,var(--border));
-  width: var(--size);
-  height: var(--size);
+  min-width: var(--size);
+  min-height: var(--size);
   background-color: var(--bg,var(--background));
   outline: none;
   display: flex;
@@ -291,7 +291,7 @@ input[type='radio']:focus, input[type='checkbox']:focus {
   text-transform: uppercase;
   background: var(--accentColor);
   border: 0;
-  padding: 1.5vw;
+  padding: 1rem;
   cursor: pointer;
   transition: transform .3s ease-in-out,
     background .1s ease-in-out;
@@ -315,4 +315,29 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   box-shadow: 0 0 0px 1000px #FEE3DE inset;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 90%;
+  }
+
+  .radio-container, .checkbox-container {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+
+  }
+
+  #survey-form {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  #comments {
+    height: 6rem;
+  }
+
+  body {
+  zoom: 1;
+  }
 }
